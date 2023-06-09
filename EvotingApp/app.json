@@ -18,13 +18,25 @@
       "supportsTablet": true
     },
     "android": {
+      "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "config": {
+        "googleMaps": {
+          "apiKey": "IzaSyA3FzKFHiA7bUcmOaubinG6wqCZt8Dw7Yk"
+        }
+      },
+      "package": "com.k191043.EvotingApp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ae7c7f39-9c3e-48c7-92a4-7fb8a3534fd2"
+      }
     }
   }
 }
