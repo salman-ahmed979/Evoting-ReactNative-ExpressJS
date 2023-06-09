@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import {
   ActivityIndicator,
-  Button,
   FlatList,
   Image,
   Text,
   TouchableOpacity,
   View,
 } from "react-native";
+import { Button } from "react-native-paper";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import AuthContext from "./AuthContext";
 
@@ -31,7 +31,17 @@ const Settings = ({ navigation }) => {
   }, []);
   return (
     <View>
-      <Text>Welcome to Settings Tab</Text>
+      <Text
+        style={{
+          fontSize: 25,
+          fontWeight: "bold",
+          fontStyle: "italic",
+          backgroundColor: "navy",
+          color: "#ffff",
+        }}
+      >
+        Welcome to Settings Tab
+      </Text>
       {!dataFetched ? (
         <View>
           <ActivityIndicator />
@@ -39,19 +49,43 @@ const Settings = ({ navigation }) => {
       ) : (
         <View>
           <View>
-            <Text>CNIC: {cnic}</Text>
+            <Text
+              style={{
+                marginVertical: 40,
+                fontSize: 18,
+                fontWeight: "bold",
+                fontStyle: "italic",
+                backgroundColor: "purple",
+                color: "#ffff",
+              }}
+            >
+              CNIC: {cnic}
+            </Text>
           </View>
           {isAdmin === "false" && (
             <View>
               <Image
-                source={{ uri: `http://192.168.0.108:6000/images/${cnic}.jpg` }}
-                style={{ width: 200, height: 200 }}
+                source={{ uri: `http://192.168.0.81:6000/images/${cnic}.jpg` }}
+                style={{
+                  margin: 20,
+                  alignSelf: "center",
+                  width: 200,
+                  height: 150,
+                  borderRadius: 10,
+                }}
               />
             </View>
           )}
 
           <View>
-            <Button title="Logout" onPress={logout} />
+            <Button
+              style={{ padding: 3 }}
+              mode="contained"
+              icon="logout"
+              onPress={logout}
+            >
+              Logout
+            </Button>
           </View>
         </View>
       )}

@@ -9,6 +9,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import AdminPanel from "./AdminPanel";
 import Settings from "./Settings";
 
+import MatIcons from "react-native-vector-icons/MaterialIcons";
+
 const Tab = createBottomTabNavigator();
 
 const Home = () => {
@@ -25,16 +27,114 @@ const Home = () => {
     <>
       {isAdmin === "true" ? (
         <Tab.Navigator>
-          <Tab.Screen name="Admin" component={AdminPanel} />
-          <Tab.Screen name="Settings" component={Settings} />
+          <Tab.Screen
+            name="Admin"
+            component={AdminPanel}
+            options={{
+              tabBarIcon: (tabInfo) => {
+                return (
+                  <MatIcons
+                    name="person"
+                    size={24}
+                    color={tabInfo.focused ? "purple" : "#8e8e93"}
+                  />
+                );
+              },
+            }}
+          />
+          <Tab.Screen
+            name="Settings"
+            component={Settings}
+            options={{
+              tabBarIcon: (tabInfo) => {
+                return (
+                  <MatIcons
+                    name="settings"
+                    size={24}
+                    color={tabInfo.focused ? "purple" : "#8e8e93"}
+                  />
+                );
+              },
+            }}
+          />
         </Tab.Navigator>
       ) : (
         <Tab.Navigator>
-          <Tab.Screen name="Election" component={Election} />
-          <Tab.Screen name="Parties" component={ElectoralParty} />
-          <Tab.Screen name="Result" component={Result} />
-          <Tab.Screen name="Map" component={Map} />
-          <Tab.Screen name="Settings" component={Settings} />
+          <Tab.Screen
+            name="Election"
+            component={Election}
+            options={{
+              tabBarIcon: (tabInfo) => {
+                return (
+                  <MatIcons
+                    name="verified-user"
+                    size={24}
+                    color={tabInfo.focused ? "#006600" : "#8e8e93"}
+                  />
+                );
+              },
+            }}
+          />
+          <Tab.Screen
+            name="Parties"
+            component={ElectoralParty}
+            options={{
+              tabBarIcon: (tabInfo) => {
+                return (
+                  <MatIcons
+                    name="assistant"
+                    size={24}
+                    color={tabInfo.focused ? "lightblue" : "#8e8e93"}
+                  />
+                );
+              },
+            }}
+          />
+          <Tab.Screen
+            name="Result"
+            component={Result}
+            options={{
+              tabBarIcon: (tabInfo) => {
+                return (
+                  <MatIcons
+                    name="check"
+                    size={24}
+                    color={tabInfo.focused ? "navy" : "#8e8e93"}
+                  />
+                );
+              },
+            }}
+          />
+          <Tab.Screen
+            name="Map"
+            component={Map}
+            options={{
+              tabBarIcon: (tabInfo) => {
+                return (
+                  <MatIcons
+                    name="map"
+                    size={24}
+                    color={tabInfo.focused ? "#006600" : "#8e8e93"}
+                  />
+                );
+              },
+            }}
+          />
+          <Tab.Screen
+            name="Settings"
+            component={Settings}
+            options={{
+              tabBarIcon: (tabInfo) => {
+                return (
+                  <MatIcons
+                    name="settings"
+                    size={24}
+                    color={tabInfo.focused ? "purple" : "#8e8e93"}
+                  />
+                );
+              },
+            }}
+          />
         </Tab.Navigator>
       )}
     </>

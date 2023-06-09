@@ -14,7 +14,7 @@ const Result = ({ navigation }) => {
   const [dataFetched, setDataFetched] = useState(false);
 
   useEffect(() => {
-    fetch("http://192.168.0.108:6000/election/result", {
+    fetch("http://192.168.0.81:6000/election/result", {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -37,17 +37,25 @@ const Result = ({ navigation }) => {
       <TouchableOpacity>
         <View
           style={{
-            borderWidth: 1,
-            flex: 1,
-            height: 50,
-            backgroundColor: "lightpink",
+            backgroundColor: index % 2 === 0 ? "green" : "brown",
+            height: 60,
+            borderBottomWidth: 3,
+            borderBottomColor: "black",
+            padding: 8,
+            flexDirection: "row",
+            justifyContent: "space-between",
+            marginVertical: 10,
           }}
         >
           <View>
-            <Text>{item.election}</Text>
+            <Text style={{ color: "#ffff", fontSize: 14 }}>
+              {item.election}
+            </Text>
           </View>
           <View>
-            <Text>Winner: {item.winner}</Text>
+            <Text style={{ color: "#ffff", fontSize: 14 }}>
+              Winner: {item.winner}
+            </Text>
           </View>
         </View>
       </TouchableOpacity>
@@ -55,14 +63,35 @@ const Result = ({ navigation }) => {
   };
   return (
     <View>
-      <Text>Welcome to Evoting Result</Text>
+      <Text
+        style={{
+          fontSize: 25,
+          fontWeight: "bold",
+          fontStyle: "italic",
+          backgroundColor: "navy",
+          color: "#ffff",
+        }}
+      >
+        Welcome to Evoting Result
+      </Text>
       {!dataFetched ? (
         <View>
           <ActivityIndicator />
         </View>
       ) : result.length === 0 ? (
         <View>
-          <Text>No Elections Result Available</Text>
+          <Text
+            style={{
+              marginVertical: 50,
+              fontSize: 18,
+              fontWeight: "bold",
+              fontStyle: "italic",
+              backgroundColor: "purple",
+              color: "#ffff",
+            }}
+          >
+            No Elections Result Available
+          </Text>
         </View>
       ) : (
         <View>

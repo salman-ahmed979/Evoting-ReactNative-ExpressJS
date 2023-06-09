@@ -125,7 +125,7 @@ const StackNav = () => {
       login: (cnic, password) => {
         console.log("user-----", cnic, password);
         AsyncStorage.getItem("expoToken").then((token) => {
-          fetch("http://192.168.0.108:6000/user/login", {
+          fetch("http://192.168.0.81:6000/user/login", {
             method: "POST",
             headers: {
               Accept: "application/json",
@@ -144,8 +144,8 @@ const StackNav = () => {
                 AsyncStorage.setItem("cnic", cnic).then(() =>
                   console.log("CNIC saved in Storage")
                 );
-                AsyncStorage.setItem("isAdmin", data.isAdmin.toString()).then(() =>
-                  console.log("IsAdmin ", data.isAdmin)
+                AsyncStorage.setItem("isAdmin", data.isAdmin.toString()).then(
+                  () => console.log("IsAdmin ", data.isAdmin)
                 );
                 setUserToken("null");
               } else {
