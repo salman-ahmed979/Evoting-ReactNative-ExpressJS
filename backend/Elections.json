@@ -1,14 +1,24 @@
 [
   {
     "election": "General Elections 2023",
-    "parties": ["PTI", "PML", "PPP"],
-    "completed": false,
-    "result": false
+    "parties": [
+      "PTI",
+      "PML",
+      "PPP"
+    ],
+    "completed": true,
+    "result": "PML"
   },
   {
     "election": "Provisional Elections 2023",
-    "parties": ["PTI", "PML", "PPP", "MQM", "IJU"],
-    "completed": false,
-    "result": false
+    "parties": [
+      "PTI",
+      "PML",
+      "PPP",
+      "MQM",
+      "IJU"
+    ],
+    "completed": true,
+    "result": "PTI"
   }
 ]
